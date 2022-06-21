@@ -70,13 +70,92 @@
 // const arrClass = a.map(item => item.class);
 // console.log(arrClass.filter(item => b.indexOf(Number(item)) !== -1));
 
-const a = [1,2,3]
-console.time('loog')
-for( var item of a ) {
-    console.log(item);
-}
-console.timeEnd('loog')
+// const a = [1,2,3]
+// console.time('loog')
+// for( var item of a ) {
+//     console.log(item);
+// }
+// console.timeEnd('loog')
 
-console.time('boog')
-a.forEach(item => console.log(item))
-console.timeEnd('boog')
+// console.time('boog')
+// a.forEach(item => console.log(item))
+// console.timeEnd('boog')
+
+// const human = [
+//     { id: 1, name: 'A', gender: 'nam'},
+//     { id: 2, name: 'B', gender: 'nam'},
+//     { id: 3, name: 'C', gender: 'nu'},
+//     { id: 4, name: 'D', gender: 'nu'},
+//     { id: 5, name: 'E', gender: 'nam'},
+// ]
+// interface AccProps {
+//     humans: string;
+//     gender: string
+// }
+// interface ItemProps {
+//     id: number;
+//     name: string;
+//     gender: string
+// }
+// console.time('map')
+// let accMap: AccProps[] = [];
+// human.forEach((item: ItemProps) => {
+//     const { id, name, gender } = item;
+//     if(gender === 'nam') {
+//         const person = {
+//             humans: name + id.toString(),
+//             gender
+//         }
+//         accMap.push(person)
+//     }
+// })
+// console.log('output',accMap);
+// console.timeEnd('map')
+
+// console.time('reduce')
+// const OutPutReduce = human.reduce((acc: AccProps[], item: ItemProps) => {
+//     const { id, name, gender } = item;
+//     // console.log(typeof id.toString());
+    
+//     gender === 'nam' && acc.push({
+//         humans: name + id.toString(),
+//         gender
+//     })    
+//     return acc
+// }, []);
+// console.log('OutPutReduce', OutPutReduce)
+// console.timeEnd('reduce')
+
+// const a = 'Hello!!';
+// const b = 5;
+// const c = true;
+
+// interface ArrTypes {
+//     a?: string;
+//     b?: number;
+//     c?: boolean;
+// }
+// const arr: ArrTypes[] = [];
+
+// arr.push(a as ArrTypes)
+// console.log(arr);
+interface InputProps {
+    firstName: string;
+    lastName: string;
+    job?: job;
+    isActive?: boolean;
+}
+type job = 'JavaScript' | 'TypeScript'
+function validateEmail(input: InputProps): string | undefined {
+    if(input.isActive) {
+        return undefined;
+    } else {
+        return `${input.firstName}.${input.lastName}@gmail.com`;
+    }
+}
+
+console.log(validateEmail({
+    firstName: 'hoan',
+    lastName: 'lekhaihoan',
+    isActive: false
+}));
